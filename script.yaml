@@ -1,0 +1,46 @@
+kodi_control:
+  sequence:
+    service: kodi.call_method
+    target:
+      entity_id: "{{ kodi_entity }}"
+    data:
+      method: "{{ kodi_method }"
+
+kodi_control_playback:
+  sequence:
+    service: kodi.call_method
+    target:
+      entity_id: "{{ kodi_entity }}"
+    data:
+      method: "{{ kodi_method }"
+      playerid: "{{ kodi_playerid | default('1') }}"
+
+kodi_control_playlist:
+  sequence:
+    service: kodi.call_method
+    target:
+      entity_id: "{{ kodi_entity }}"
+    data:
+      method: "{{ kodi_method }"
+      window: videos
+      parameters: "{{ [ kodi_parameters ] }}"
+
+kodi_control_seek:
+  sequence:
+    service: kodi.call_method
+    target:
+      entity_id: "{{ kodi_entity }}"
+    data:
+      method: "{{ kodi_method }"
+      playerid: "{{ kodi_playerid | default('1') }}"
+      value: "{{ kodi_seek_amount }}"
+
+kodi_control_subtitles:
+  sequence:
+    service: kodi.call_method
+    target:
+      entity_id: "{{ kodi_entity }}"
+    data:
+      method: "{{ kodi_method }"
+      action: nextsubtitle
+
