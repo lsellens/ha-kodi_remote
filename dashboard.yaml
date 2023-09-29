@@ -160,12 +160,12 @@ views:
             type: custom:hui-element
           - card_type: horizontal-stack
             cards:
-              - entity: script.kodi_control
+              - entity: script.kodi_control_playback
                 icon: mdi:play-pause
                 name: Play/Pause
                 tap_action:
                   action: call-service
-                  service: script.kodi_control
+                  service: script.kodi_control_playback
                   service_data:
                     kodi_entity: media_player.bedroom
                     kodi_method: Player.PlayPause
