@@ -4,7 +4,7 @@ kodi_control:
     target:
       entity_id: "{{ kodi_entity }}"
     data:
-      method: "{{ kodi_method }"
+      method: "{{ kodi_method }}"
 
 kodi_control_playback:
   sequence:
@@ -12,7 +12,7 @@ kodi_control_playback:
     target:
       entity_id: "{{ kodi_entity }}"
     data:
-      method: "{{ kodi_method }"
+      method: "{{ kodi_method }}"
       playerid: "{{ kodi_playerid | default('1') }}"
 
 kodi_control_playlist:
@@ -21,7 +21,7 @@ kodi_control_playlist:
     target:
       entity_id: "{{ kodi_entity }}"
     data:
-      method: "{{ kodi_method }"
+      method: "{{ kodi_method }}"
       window: videos
       parameters: "{{ [ kodi_parameters ] }}"
 
@@ -31,7 +31,7 @@ kodi_control_seek:
     target:
       entity_id: "{{ kodi_entity }}"
     data:
-      method: "{{ kodi_method }"
+      method: "{{ kodi_method }}"
       playerid: "{{ kodi_playerid | default('1') }}"
       value: "{{ kodi_seek_amount }}"
 
@@ -41,6 +41,6 @@ kodi_control_subtitles:
     target:
       entity_id: "{{ kodi_entity }}"
     data:
-      method: "{{ kodi_method }"
+      method: "{{ kodi_method }}"
       action: nextsubtitle
 
