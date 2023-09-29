@@ -80,6 +80,7 @@ views:
                   service_data:
                     kodi_entity: media_player.bedroom
                     kodi_method: GUI.ActivateWindow
+                    kodi_window: videos
                     kodi_parameters: Playlists
                 template: menu_button
                 type: custom:button-card
@@ -92,6 +93,7 @@ views:
                   service_data:
                     kodi_entity: media_player.bedroom
                     kodi_method: GUI.ActivateWindow
+                    kodi_window: videos
                     kodi_parameters: RecentlyAddedMovies
                 template: menu_button
                 type: custom:button-card
@@ -104,6 +106,7 @@ views:
                   service_data:
                     kodi_entity: media_player.bedroom
                     kodi_method: GUI.ActivateWindow
+                    kodi_window: videos
                     kodi_parameters: RecentlyAddedEpisodes
                 template: menu_button
                 type: custom:button-card
@@ -260,6 +263,7 @@ views:
                   service_data:
                     kodi_entity: media_player.bedroom
                     kodi_method: Input.ExecuteAction
+                    kodi_action: nextsubtitle
                 template: menu_button
                 type: custom:button-card
             type: custom:hui-element
@@ -274,7 +278,7 @@ views:
                   service_data:
                     kodi_entity: media_player.bedroom
                     kodi_method: Player.Seek
-                    kodi_seek_amount: bigbackward
+                    kodi_value: bigbackward
                     kodi_playerid: 1
                 template: icon_button
                 type: custom:button-card
@@ -287,7 +291,7 @@ views:
                   service_data:
                     kodi_entity: media_player.bedroom
                     kodi_method: Player.Seek
-                    kodi_seek_amount: smallbackward
+                    kodi_value: smallbackward
                     kodi_playerid: 1
                 template: icon_button
                 type: custom:button-card
@@ -300,7 +304,7 @@ views:
                   service_data:
                     kodi_entity: media_player.bedroom
                     kodi_method: Player.Seek
-                    kodi_seek_amount: smallforward
+                    kodi_value: smallforward
                     kodi_playerid: 1
                 template: icon_button
                 type: custom:button-card
@@ -313,7 +317,7 @@ views:
                   service_data:
                     kodi_entity: media_player.bedroom
                     kodi_method: Player.Seek
-                    kodi_seek_amount: bigforward
+                    kodi_value: bigforward
                     kodi_playerid: 1
                 template: icon_button
                 type: custom:button-card
