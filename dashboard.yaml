@@ -55,272 +55,285 @@ button_card_templates:
       action: call-service
 views:
   - title: Bedroom
+    subview: false
+    icon: ''
     badges: []
     cards:
       - entities:
           - card_type: horizontal-stack
             cards:
-              - entity: script.kodi_control
+              - name: Power
+                type: custom:button-card
+                template: icon_button
                 icon: mdi:power
-                name: Power
+                entity: media_player.bedroom
                 tap_action:
                   action: call-service
-                  service: script.kodi_control
-                  service_data:
-                    kodi_entity: media_player.bedroom
-                    kodi_method: System.Shutdown
-                template: icon_button
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.bedroom
+                  data:
+                    method: System.Shutdown
+              - name: Kids
                 type: custom:button-card
-              - entity: script.kodi_control_playlist
+                template: menu_button
                 icon: mdi:account-child-circle
-                name: Kids
+                entity: media_player.bedroom
                 tap_action:
                   action: call-service
-                  service: script.kodi_control_playlist
-                  service_data:
-                    kodi_entity: media_player.bedroom
-                    kodi_method: GUI.ActivateWindow
-                    kodi_window: videos
-                    kodi_parameters: Playlists
-                template: menu_button
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.bedroom
+                  data:
+                    method: GUI.ActivateWindow
+                    window: videos
+                    parameters:
+                      - Playlists
+              - name: New Movies
                 type: custom:button-card
-              - entity: script.kodi_control_playlist
+                template: menu_button
                 icon: mdi:movie-open-star
-                name: New Movies
+                entity: media_player.bedroom
                 tap_action:
                   action: call-service
-                  service: script.kodi_control_playlist
-                  service_data:
-                    kodi_entity: media_player.bedroom
-                    kodi_method: GUI.ActivateWindow
-                    kodi_window: videos
-                    kodi_parameters: RecentlyAddedMovies
-                template: menu_button
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.bedroom
+                  data:
+                    method: GUI.ActivateWindow
+                    window: videos
+                    parameters:
+                      - RecentlyAddedMovies
+              - name: New TV
                 type: custom:button-card
-              - entity: script.kodi_control_playlist
+                template: menu_button
                 icon: mdi:television-shimmer
-                name: New TV
+                entity: media_player.bedroom
                 tap_action:
                   action: call-service
-                  service: script.kodi_control_playlist
-                  service_data:
-                    kodi_entity: media_player.bedroom
-                    kodi_method: GUI.ActivateWindow
-                    kodi_window: videos
-                    kodi_parameters: RecentlyAddedEpisodes
-                template: menu_button
-                type: custom:button-card
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.bedroom
+                  data:
+                    method: GUI.ActivateWindow
+                    window: videos
+                    parameters:
+                      - RecentlyAddedEpisodes
             type: custom:hui-element
           - card_type: horizontal-stack
             cards:
-              - entity: script.kodi_control
+              - name: Home
+                type: custom:button-card
+                template: icon_button
                 icon: mdi:home
-                name: Home
+                entity: media_player.bedroom
                 tap_action:
                   action: call-service
-                  service: script.kodi_control
-                  service_data:
-                    kodi_entity: media_player.bedroom
-                    kodi_method: Input.Home
-                template: icon_button
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.bedroom
+                  data:
+                    method: Input.Home
+              - name: Menu
                 type: custom:button-card
-              - entity: script.kodi_control
+                template: menu_button
                 icon: mdi:menu
-                name: Menu
+                entity: media_player.bedroom
                 tap_action:
                   action: call-service
-                  service: script.kodi_control
-                  service_data:
-                    kodi_entity: media_player.bedroom
-                    kodi_method: Input.ContextMenu
-                template: menu_button
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.bedroom
+                  data:
+                    method: Input.ContextMenu
+              - name: Up
                 type: custom:button-card
-              - entity: script.kodi_control
+                template: icon_button
                 icon: mdi:arrow-up-bold
-                name: Up
-                styles:
-                  card:
-                    - background: var(--secondary-background-color-alpha)
+                entity: media_player.bedroom
                 tap_action:
                   action: call-service
-                  service: script.kodi_control
-                  service_data:
-                    kodi_entity: media_player.bedroom
-                    kodi_method: Input.Up
-                template: icon_button
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.bedroom
+                  data:
+                    method: Input.Up
+              - name: Info
                 type: custom:button-card
-              - entity: script.kodi_control
+                template: menu_button
                 icon: mdi:information-outline
-                name: Info
+                entity: media_player.bedroom
                 tap_action:
                   action: call-service
-                  service: script.kodi_control
-                  service_data:
-                    kodi_entity: media_player.bedroom
-                    kodi_method: Input.Info
-                template: menu_button
-                type: custom:button-card
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.bedroom
+                  data:
+                    method: Input.Info
             type: custom:hui-element
           - card_type: horizontal-stack
             cards:
-              - entity: script.kodi_control_playback
+              - name: Play/Pause
+                type: custom:button-card
+                template: icon_button
                 icon: mdi:play-pause
-                name: Play/Pause
+                entity: media_player.bedroom
                 tap_action:
                   action: call-service
-                  service: script.kodi_control_playback
-                  service_data:
-                    kodi_entity: media_player.bedroom
-                    kodi_method: Player.PlayPause
-                    kodi_playerid: 1
-                template: icon_button
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.bedroom
+                  data:
+                    method: Player.PlayPause
+                    playerid: 1
+              - name: Left
                 type: custom:button-card
-              - entity: script.kodi_control
+                template: icon_button
                 icon: mdi:arrow-left-bold
-                name: Left
-                styles:
-                  card:
-                    - background: var(--secondary-background-color-alpha)
+                entity: media_player.bedroom
                 tap_action:
                   action: call-service
-                  service: script.kodi_control
-                  service_data:
-                    kodi_entity: media_player.bedroom
-                    kodi_method: Input.Left
-                template: icon_button
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.bedroom
+                  data:
+                    method: Input.Left
+              - name: Select
                 type: custom:button-card
-              - entity: script.kodi_control
+                template: icon_button
                 icon: mdi:kodi
-                name: Ok
+                entity: media_player.bedroom
                 tap_action:
                   action: call-service
-                  service: script.kodi_control
-                  service_data:
-                    kodi_entity: media_player.bedroom
-                    kodi_method: Input.Select
-                template: icon_button
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.bedroom
+                  data:
+                    method: Input.Select
+              - name: Right
                 type: custom:button-card
-              - entity: script.kodi_control
+                template: icon_button
                 icon: mdi:arrow-right-bold
-                name: Right
-                styles:
-                  card:
-                    - background: var(--secondary-background-color-alpha)
+                entity: media_player.bedroom
                 tap_action:
                   action: call-service
-                  service: script.kodi_control
-                  service_data:
-                    kodi_entity: media_player.bedroom
-                    kodi_method: Input.Right
-                template: icon_button
-                type: custom:button-card
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.bedroom
+                  data:
+                    method: Input.Right
             type: custom:hui-element
           - card_type: horizontal-stack
             cards:
-              - entity: script.kodi_control_playback
+              - name: Stop
+                type: custom:button-card
+                template: icon_button
                 icon: mdi:stop
-                name: Stop
+                entity: media_player.bedroom
                 tap_action:
                   action: call-service
-                  service: script.kodi_control_playback
-                  service_data:
-                    kodi_entity: media_player.bedroom
-                    kodi_method: Player.Stop
-                    kodi_playerid: 1
-                template: icon_button
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.bedroom
+                  data:
+                    method: Player.Stop
+                    playerid: 1
+              - name: Back
                 type: custom:button-card
-              - entity: script.kodi_control
+                template: menu_button
+                entity: media_player.bedroom
                 icon: mdi:backburger
-                name: Return
                 tap_action:
                   action: call-service
-                  service: script.kodi_control
-                  service_data:
-                    kodi_entity: media_player.bedroom
-                    kodi_method: Input.Back
-                template: menu_button
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.bedroom
+                  data:
+                    method: Input.Back
+              - name: Down
                 type: custom:button-card
-              - entity: script.kodi_control
-                icon: mdi:arrow-down-bold
-                name: Down
-                styles:
-                  card:
-                    - background: var(--secondary-background-color-alpha)
-                tap_action:
-                  action: call-service
-                  service: script.kodi_control
-                  service_data:
-                    kodi_entity: media_player.bedroom
-                    kodi_method: Input.Down
                 template: icon_button
-                type: custom:button-card
-              - entity: script.kodi_control_subtitles
-                icon: mdi:subtitles-outline
-                name: Subtitle
+                icon: mdi:arrow-down-bold
+                entity: media_player.bedroom
                 tap_action:
                   action: call-service
-                  service: script.kodi_control_subtitles
-                  service_data:
-                    kodi_entity: media_player.bedroom
-                    kodi_method: Input.ExecuteAction
-                    kodi_action: nextsubtitle
-                template: menu_button
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.bedroom
+                  data:
+                    method: Input.Down
+              - name: Subtitle
                 type: custom:button-card
+                template: menu_button
+                icon: mdi:subtitles-outline
+                entity: media_player.bedroom
+                tap_action:
+                  action: call-service
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.bedroom
+                  data:
+                    method: Input.ExecuteAction
+                    action: nextsubtitle
             type: custom:hui-element
           - card_type: horizontal-stack
             cards:
-              - entity: script.kodi_control_seek
+              - name: Back 10m
+                type: custom:button-card
+                template: icon_button
                 icon: mdi:rewind
-                name: Back 10m
+                entity: media_player.bedroom
                 tap_action:
                   action: call-service
-                  service: script.kodi_control_seek
-                  service_data:
-                    kodi_entity: media_player.bedroom
-                    kodi_method: Player.Seek
-                    kodi_value: bigbackward
-                    kodi_playerid: 1
-                template: icon_button
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.bedroom
+                  data:
+                    method: Player.Seek
+                    value: bigbackward
+                    playerid: 1
+              - name: Back 30s
                 type: custom:button-card
-              - entity: script.kodi_control_seek
+                template: icon_button
                 icon: mdi:rewind-30
-                name: Back 30s
+                entity: media_player.bedroom
                 tap_action:
                   action: call-service
-                  service: script.kodi_control_seek
-                  service_data:
-                    kodi_entity: media_player.bedroom
-                    kodi_method: Player.Seek
-                    kodi_value: smallbackward
-                    kodi_playerid: 1
-                template: icon_button
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.bedroom
+                  data:
+                    method: Player.Seek
+                    value: smallbackward
+                    playerid: 1
+              - name: Fwd 30s
                 type: custom:button-card
-              - entity: script.kodi_control_seek
+                template: icon_button
                 icon: mdi:fast-forward-30
-                name: Fwd 30s
+                entity: media_player.bedroom
                 tap_action:
                   action: call-service
-                  service: script.kodi_control_seek
-                  service_data:
-                    kodi_entity: media_player.bedroom
-                    kodi_method: Player.Seek
-                    kodi_value: smallforward
-                    kodi_playerid: 1
-                template: icon_button
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.bedroom
+                  data:
+                    method: Player.Seek
+                    value: smallforward
+                    playerid: 1
+              - name: Fwd 10m
                 type: custom:button-card
-              - entity: script.kodi_control_seek
+                template: icon_button
                 icon: mdi:fast-forward
-                name: Fwd 10m
+                entity: media_player.bedroom
                 tap_action:
                   action: call-service
-                  service: script.kodi_control_seek
-                  service_data:
-                    kodi_entity: media_player.bedroom
-                    kodi_method: Player.Seek
-                    kodi_value: bigforward
-                    kodi_playerid: 1
-                template: icon_button
-                type: custom:button-card
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.bedroom
+                  data:
+                    method: Player.Seek
+                    value: bigforward
+                    playerid: 1
             type: custom:hui-element
           - artwork: full-cover
             entity: media_player.bedroom
@@ -338,6 +351,334 @@ views:
             info: scroll
             type: custom:mini-media-player
         show_header_toggle: false
-        title: Kodi Remote
+        title: Bedroom Kodi Remote
         type: entities
+  - title: Livingroom
+    path: livingroom
+    badges: []
+    cards:
+      - type: custom:mini-media-player
+        entity: media_player.denon_avr_s920w
+        group: true
+        icon: mdi:audio-video
+      - entities:
+          - card_type: horizontal-stack
+            cards:
+              - name: Power
+                type: custom:button-card
+                template: icon_button
+                icon: mdi:power
+                entity: media_player.livingroom
+                tap_action:
+                  action: call-service
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.livingroom
+                  data:
+                    method: System.Shutdown
+                hold_action:
+                  action: call-service
+                  service: media_player.turn_off
+                  data: {}
+                  target:
+                    entity_id:
+                      - media_player.denon_avr_s920w
+                      - media_player.insignia_roku_tv_yw00ca244543
+                      - media_player.livingroom
+              - name: Kids
+                type: custom:button-card
+                template: menu_button
+                icon: mdi:account-child-circle
+                entity: media_player.livingroom
+                tap_action:
+                  action: call-service
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.livingroom
+                  data:
+                    method: GUI.ActivateWindow
+                    window: videos
+                    parameters:
+                      - Playlists
+              - name: New Movies
+                type: custom:button-card
+                template: menu_button
+                icon: mdi:movie-open-star
+                entity: media_player.livingroom
+                tap_action:
+                  action: call-service
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.livingroom
+                  data:
+                    method: GUI.ActivateWindow
+                    window: videos
+                    parameters:
+                      - RecentlyAddedMovies
+              - name: New TV
+                type: custom:button-card
+                template: menu_button
+                icon: mdi:television-shimmer
+                entity: media_player.livingroom
+                tap_action:
+                  action: call-service
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.livingroom
+                  data:
+                    method: GUI.ActivateWindow
+                    window: videos
+                    parameters:
+                      - RecentlyAddedEpisodes
+            type: custom:hui-element
+          - card_type: horizontal-stack
+            cards:
+              - name: Home
+                type: custom:button-card
+                template: icon_button
+                icon: mdi:home
+                entity: media_player.livingroom
+                tap_action:
+                  action: call-service
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.livingroom
+                  data:
+                    method: Input.Home
+              - name: Menu
+                type: custom:button-card
+                template: menu_button
+                icon: mdi:menu
+                entity: media_player.livingroom
+                tap_action:
+                  action: call-service
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.livingroom
+                  data:
+                    method: Input.ContextMenu
+              - name: Up
+                type: custom:button-card
+                template: icon_button
+                icon: mdi:arrow-up-bold
+                entity: media_player.livingroom
+                tap_action:
+                  action: call-service
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.livingroom
+                  data:
+                    method: Input.Up
+              - name: Info
+                type: custom:button-card
+                template: menu_button
+                icon: mdi:information-outline
+                entity: media_player.livingroom
+                tap_action:
+                  action: call-service
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.livingroom
+                  data:
+                    method: Input.Info
+            type: custom:hui-element
+          - card_type: horizontal-stack
+            cards:
+              - name: Play/Pause
+                type: custom:button-card
+                template: icon_button
+                icon: mdi:play-pause
+                entity: media_player.livingroom
+                tap_action:
+                  action: call-service
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.livingroom
+                  data:
+                    method: Player.PlayPause
+                    playerid: 1
+              - name: Left
+                type: custom:button-card
+                template: icon_button
+                icon: mdi:arrow-left-bold
+                entity: media_player.livingroom
+                tap_action:
+                  action: call-service
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.livingroom
+                  data:
+                    method: Input.Left
+              - name: Select
+                type: custom:button-card
+                template: icon_button
+                icon: mdi:kodi
+                entity: media_player.livingroom
+                tap_action:
+                  action: call-service
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.livingroom
+                  data:
+                    method: Input.Select
+              - name: Right
+                type: custom:button-card
+                template: icon_button
+                icon: mdi:arrow-right-bold
+                entity: media_player.livingroom
+                tap_action:
+                  action: call-service
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.livingroom
+                  data:
+                    method: Input.Right
+            type: custom:hui-element
+          - card_type: horizontal-stack
+            cards:
+              - name: Stop
+                type: custom:button-card
+                template: icon_button
+                icon: mdi:stop
+                entity: media_player.livingroom
+                tap_action:
+                  action: call-service
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.livingroom
+                  data:
+                    method: Player.Stop
+                    playerid: 1
+              - name: Back
+                type: custom:button-card
+                template: menu_button
+                entity: media_player.livingroom
+                icon: mdi:backburger
+                tap_action:
+                  action: call-service
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.livingroom
+                  data:
+                    method: Input.Back
+              - name: Down
+                type: custom:button-card
+                template: icon_button
+                icon: mdi:arrow-down-bold
+                entity: media_player.livingroom
+                tap_action:
+                  action: call-service
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.livingroom
+                  data:
+                    method: Input.Down
+              - name: Subtitle
+                type: custom:button-card
+                template: menu_button
+                icon: mdi:subtitles-outline
+                entity: media_player.livingroom
+                tap_action:
+                  action: call-service
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.livingroom
+                  data:
+                    method: Input.ExecuteAction
+                    action: nextsubtitle
+            type: custom:hui-element
+          - card_type: horizontal-stack
+            cards:
+              - name: Back 10m
+                type: custom:button-card
+                template: icon_button
+                icon: mdi:rewind
+                entity: media_player.livingroom
+                tap_action:
+                  action: call-service
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.livingroom
+                  data:
+                    method: Player.Seek
+                    value: bigbackward
+                    playerid: 1
+              - name: Back 30s
+                type: custom:button-card
+                template: icon_button
+                icon: mdi:rewind-30
+                entity: media_player.livingroom
+                tap_action:
+                  action: call-service
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.livingroom
+                  data:
+                    method: Player.Seek
+                    value: smallbackward
+                    playerid: 1
+              - name: Fwd 30s
+                type: custom:button-card
+                template: icon_button
+                icon: mdi:fast-forward-30
+                entity: media_player.livingroom
+                tap_action:
+                  action: call-service
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.livingroom
+                  data:
+                    method: Player.Seek
+                    value: smallforward
+                    playerid: 1
+              - name: Fwd 10m
+                type: custom:button-card
+                template: icon_button
+                icon: mdi:fast-forward
+                entity: media_player.livingroom
+                tap_action:
+                  action: call-service
+                  service: kodi.call_method
+                  target:
+                    entity_id: media_player.livingroom
+                  data:
+                    method: Player.Seek
+                    value: bigforward
+                    playerid: 1
+            type: custom:hui-element
+          - artwork: full-cover
+            entity: media_player.livingroom
+            group: true
+            hide:
+              artwork: false
+              controls: false
+              icon: true
+              name: true
+              power: true
+              power_state: true
+              source: true
+              volume: false
+            icon: mdi:kodi
+            info: scroll
+            type: custom:mini-media-player
+        show_header_toggle: false
+        title: Livingroom Kodi Remote
+        type: entities
+      - type: conditional
+        conditions:
+          - entity: media_player.insignia_roku_tv_yw00ca244543
+            state_not: unavailable
+        card:
+          type: custom:roku-card
+          entity: media_player.insignia_roku_tv_yw00ca244543
+          tv: true
+          apps:
+            - image: /local/images/netflix.png
+              app: Netflix
+            - image: /local/images/disneyp-blue.png
+              app: Disney Plus
+            - image: /local/images/hulu.png
+              app: Hulu
+            - image: /local/images/youtube.png
+              app: YouTube
 title: Bedroom Kodi
